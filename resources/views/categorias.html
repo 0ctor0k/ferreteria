@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../../js/axios.js"></script>
-    <script src="../../js/producto.js"></script>
-    <title>Producto</title>
+    <title>categorias</title>
+    <script src="../js/axios.js"></script>
+    <script src="../js/categoria.js"></script>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -13,32 +13,32 @@
     </style>
 </head>
 <body>
+    <h1>Categorias</h1>
     <div>
-        <h1>Productos</h1>
-    </div>
-    <div>
-        <label for="nombre">Nombre</label>
+        <label for="nombre">Nombre Categoria</label>
         <input type="text" name="txtNombre" id="txtNombre">
     </div>
     <div>
-        <label for="cantidad">Cantidad</label>
-        <input type="number" name="txtCantidad" id="txtCantidad">
+        <label for="codigo">Codigo Categoria</label>
+        <input type="number" name="txtCodigo" id="txtCodigo">
     </div>
     <div>
         <button onclick="create()">Crear</button>
-        <button onclick="update()">Actualizar</button>
+        <button onclick="update()">Modificar</button>
         <button onclick="deletes()">Eliminar</button>
     </div>
-    <table id="tableData">
+    <table>
         <thead>
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Cantidad</th>
+                <th>Codigo</th>
                 <th>Estado</th>
             </tr>
-        </thead> 
-        <tbody id="tableBody"></tbody>   
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
     </table>
 </body>
 </html>

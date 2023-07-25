@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class ProductoController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Producto::all();
+        //
+        return Categoria::all();
     }
 
     /**
@@ -20,24 +21,26 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        Producto::create($request->all());
+        //
+        Categoria::create($request->all());
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Categoria $categoria)
     {
         //
-        Producto::findOrFail($request->id)->update($request->all());
+        Categoria::findOrFail($request->id)->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy(Categoria $categorium)
     {
         //
-        Producto::findOrFail($producto->id)->delete();
+        Categoria::findOrFail($categorium->id)->delete();
     }
 }
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pruebas', function () {
+/* Route::get('/pruebas', function () {
     return view('welcome');
-})->name('saludo');
+})->name('saludo'); */
 
 Route::get('/productos', function(){
     return view('productos');
 });
+Route::get('/categorias', function(){
+    return view('categorias');
+});
+
 //Route::get('/inicio/{nombre}', [inicioC::class, "saludar"]);
 Route::resource('/producto',ProductoController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::resource('/categoria',CategoriaController::class)->only(['index', 'store', 'update', 'destroy']);
