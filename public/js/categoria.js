@@ -10,15 +10,21 @@ function create(){
         clear();
     })
     .catch(function (error){
-        console.log(error)
+        console.log(Object.values(error.response.data.errors))
+        let data = " ";
+        Object.values(error.response.data.errors).forEach((element) => {
+            data += `<p>${element}</p>`
+        });
+        errores.innerHTML = data;
     });
 }
-function read(){
-    axios.get("/categoria")
+function read(url = "categoria"){
+    axios.get(url)
     .then(function (response){
         console.log(response.data);
         datos = " ";
-        response.data.forEach((element, index) => {
+        let lista = "";
+        response.data.data.forEach((element, index) => {
             datos += `<tr onclick='load(${JSON.stringify(element)})'>`;
             datos += `<td>${index + 1}</td>`;
             datos += `<td>${element.nombre}</td>`;
@@ -26,7 +32,12 @@ function read(){
             datos += `<td>${element.estado}</td>`;
             datos += `</tr>`;
         });
+
+        response.data.links.forEach((element) =>{
+            lista += `<td> <a class="pagina" onclick="read('${element.url}')"</a>${element.label} </td>`
+        });
         tableBody.innerHTML = datos;
+        list.innerHTML = lista;
     })
     .catch(function (error){
         console.log(error)

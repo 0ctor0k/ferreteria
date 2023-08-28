@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,10 @@ class ProductoFactory extends Factory
     {
         return [
             //
+            'nombre' => fake()->text($maxNbChars = 20),
+            'cantidad' => fake()->numberBetween($min = 1, $max = 1000),
+            'categoria_id' => Categoria::factory(),
+            'estado' => 'A'
         ];
     }
 }

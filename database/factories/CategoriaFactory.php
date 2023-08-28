@@ -17,7 +17,11 @@ class CategoriaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            //representa una fabrica y el seeder consume esa fabrica 
+            'nombre' => fake()->text($maxNbChars = 20),
+            'codigo' => fake()->numberBetween($min = 0, $max = 1000),
+            'estado' => 'A'
+
         ];
     }
 }

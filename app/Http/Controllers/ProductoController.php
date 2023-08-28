@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
+    public  function __construct() {
+        $this->middleware('cantidad',['only' => ['store']]);
+    }
     /**
      * Display a listing of the resource.
      */

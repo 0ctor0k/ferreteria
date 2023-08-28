@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoriasRequest;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,17 @@ class CategoriaController extends Controller
     public function index()
     {
         //
-        return Categoria::all();
+        return Categoria::paginate(10);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
         //
         Categoria::create($request->all());
+
     }
 
     /**

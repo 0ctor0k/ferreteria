@@ -19,10 +19,18 @@ use Illuminate\Support\Facades\Route;
 /* Route::get('/pruebas', function () {
     return view('welcome');
 })->name('saludo'); */
+Route::get('/', function(){
+    return view('index');
+});
+
+Route::get('/login', function(){
+    return view('welcome');
+})->name('login');
 
 Route::get('/productos', function(){
     return view('productos');
-});
+}); //->middleware('auth');
+
 Route::get('/categorias', function(){
     return view('categorias');
 });
